@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jomag/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run jomag/docker-react npm run test -- --coverage
